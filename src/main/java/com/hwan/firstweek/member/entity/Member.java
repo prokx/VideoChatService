@@ -1,5 +1,6 @@
 package com.hwan.firstweek.member.entity;
 
+import com.hwan.firstweek.room.entity.Room;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -28,6 +29,9 @@ public class Member implements UserDetails {
     @Column(nullable = false)
     private String password;
 
+    @ManyToOne
+    @JoinColumn
+    private Room room;
 
     //fetch type
     @ElementCollection(fetch = FetchType.EAGER)

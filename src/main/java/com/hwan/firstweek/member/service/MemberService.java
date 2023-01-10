@@ -2,6 +2,8 @@ package com.hwan.firstweek.member.service;
 
 import com.hwan.firstweek.jwt.JwtTokenProvider;
 import com.hwan.firstweek.jwt.TokenInfo;
+import com.hwan.firstweek.member.dto.MemberLoginRequestDto;
+import com.hwan.firstweek.member.entity.Member;
 import com.hwan.firstweek.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -9,6 +11,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -34,4 +39,26 @@ public class MemberService {
 
         return tokenInfo;
     }
+
+
+    @Transactional
+    public Member registMember(MemberLoginRequestDto memberLoginRequestDto){
+         return memberRepository.save(Member.builder()
+                .memberId(memberLoginRequestDto.getMemberId())
+                .password(memberLoginRequestDto.getPassword())
+                .build());
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Member>  findMember(String id){
+        return memberRepository.findByMemberId(id);
+
+    }
+
+
+
+
+
+
+
 }

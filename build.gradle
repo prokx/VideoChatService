@@ -25,6 +25,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 	implementation 'mysql:mysql-connector-java:8.0.31'
+
+	//validation
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
+
 	// jwt
 	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
 	implementation 'io.jsonwebtoken:jjwt-impl:0.11.5'

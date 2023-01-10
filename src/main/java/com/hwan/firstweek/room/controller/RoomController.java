@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Api
 public class RoomController {
-    
+
     private final RoomService roomService;
 
     @ApiOperation(value="post")
@@ -20,7 +20,7 @@ public class RoomController {
 
     }
 
-    @ApiOperation(value="get Room")
+    @ApiOperation(value="get Room1")
     @GetMapping("/{id}")
     public void searchRoom(){
 

@@ -22,10 +22,10 @@ public class Room extends BaseTimeEntity {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
-    String id;
+    String roomId;
 
     @Column
-    String title;
+    String name;
 
     @Column
     @OneToMany(mappedBy = "room", cascade = {CascadeType.ALL})
